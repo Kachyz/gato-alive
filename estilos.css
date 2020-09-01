@@ -9,21 +9,11 @@
   /* height: 150px; */
 }
 
-.columna {
-  border-right: solid black 1px;
-}
-
-.fila {
-  border-bottom: solid black 1px;
-}
-
-
-
 .horizontales {
-  border-top: solid red 2px;
-  border-bottom: solid red 2px;
+  border-top: solid black 2px;
+  border-bottom: solid black 2px;
 }
 .verticales {
-  border-left: solid red 2px;
-  border-right: solid red 2px;
+  border-left: solid black 2px;
+  border-right: solid black 2px;
 }
