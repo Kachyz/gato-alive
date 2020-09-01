@@ -1,0 +1,29 @@
+.contenedor-grid {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+}
+
+.elemento-grid {
+  /* border: solid black 1px; */
+  /* height: 150px; */
+}
+
+.columna {
+  border-right: solid black 1px;
+}
+
+.fila {
+  border-bottom: solid black 1px;
+}
+
+
+
+.horizontales {
+  border-top: solid red 2px;
+  border-bottom: solid red 2px;
+}
+.verticales {
+  border-left: solid red 2px;
+  border-right: solid red 2px;
+}
