@@ -4,23 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./estilos.css">
+  <script src="./funciones.js"></script>
   <title>Document</title>
 </head>
 <body>
 <h1>Tic Tac Toe</h1>
 <button>Reiniciar</button>
 
+<div class="contenedor-principal">
+
   <div class="contenedor-grid">
-    <div class="elemento-grid "></div>
-    <div class="elemento-grid verticales "></div>
-    <div class="elemento-grid "></div>
-    <div class="elemento-grid horizontales"></div>
-    <div class="elemento-grid verticales horizontales"></div>
-    <div class="elemento-grid horizontales"></div>
-    <div class="elemento-grid "></div>
-    <div class="elemento-grid verticales "></div>
-    <div class="elemento-grid"></div>
+    <div class="elemento-grid" id="casilla1" onclick="marcarCasilla();"><p></p></div>
+    <div class="elemento-grid verticales "><p></p></div>
+    <div class="elemento-grid "><p></p></div>
+    <div class="elemento-grid horizontales"><p></p></div>
+    <div class="elemento-grid verticales horizontales"><p></p></div>
+    <div class="elemento-grid horizontales"><p></p></div>
+    <div class="elemento-grid "><p></p></div>
+    <div class="elemento-grid verticales "><p></p></div>
+    <div class="elemento-grid"><p></p></div>
   </div>
 
+  <div id="mensaje-ganador">
+    <p>FELICIDADES</p>
+  </div>
+
+</div>
+
+  <div>
+    <p>Turno del jugador <span id="jugadorEnTurno">1</span></p>
+  </div>
+
+<button id="modoJuego">VS CPU</button>
 </body>
 </html>
