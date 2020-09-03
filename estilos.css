@@ -9,6 +9,11 @@
   /* height: 150px; */
 }
 
+.elemento-grid:hover {
+  transform: scale(1.1);
+  border: solid black 5px;
+}
+
 .horizontales {
   border-top: solid black 2px;
   border-bottom: solid black 2px;
@@ -16,4 +21,15 @@
 .verticales {
   border-left: solid black 2px;
   border-right: solid black 2px;
+}
+
+.contenedor-principal {
+  display: flex;
+}
+
+.casilla-morada {
+  background-color: blueviolet;
+  color: white;
+  text-align: center;
+  font-size: 30px;
 }
