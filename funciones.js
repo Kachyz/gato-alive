@@ -1,8 +1,8 @@
 // 1 - X    2 - O
 let turnoPrimerJugador = true
 
-function marcarCasilla () {
-    let casilla = document.getElementById("casilla1");
+function marcarCasilla(numero) {
+    let casilla = document.getElementById("casilla" + numero);
 
     // Preguntamos de quien es el turno
     if(turnoPrimerJugador) {
