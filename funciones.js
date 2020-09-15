@@ -1,32 +1,36 @@
 // 1 - X    2 - O
-let turnoPrimerJugador = true
+let turnoPrimerJugador = true;
+let copiaTablero = [];
 
 function marcarCasilla(numero) {
     let casilla = document.getElementById("casilla" + numero);
 
     //LA CASILLA ESTÁ OCUPADA???
-    let ocupada = estaOcupada(casilla)
+    let ocupada = estaOcupada(casilla);
 
     if(!ocupada) {
         // Preguntamos de quien es el turno
-    if(turnoPrimerJugador) {
-        casilla.classList.add("casilla-morada");
-        casilla.classList.remove("casilla-azul")
-        casilla.childNodes[0].innerText = 'X';
-        turnoPrimerJugador = false;
-    }
-    else {
-        casilla.classList.add("casilla-azul");
-        casilla.classList.remove("casilla-morada");
-        casilla.childNodes[0].innerText = 'O';
-        turnoPrimerJugador = true;
-    }
+        if(turnoPrimerJugador) {
+            casilla.classList.add("casilla-morada");
+            casilla.classList.remove("casilla-azul");
+            casilla.childNodes[0].innerText = 'X';
+            // colocar la misma X pero en el arreglo
+            copiaTablero[numero-1] = 'X';
+            turnoPrimerJugador = false;
+        }
+        else {
+            casilla.classList.add("casilla-azul");
+            casilla.classList.remove("casilla-morada");
+            casilla.childNodes[0].innerText = 'O';
+            copiaTablero[numero-1] = 'O';
+            turnoPrimerJugador = true;
+        }
     }
     //SALIR
 }
 
 function estaOcupada(casilla){
-    
+
     if(casilla.childNodes[0].innerText) {
         console.log('sí está ocupada');
         return true;
