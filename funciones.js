@@ -51,6 +51,7 @@ function reiniciarJuego () {
     limpiarCasilla(8);
     limpiarCasilla(9);
     // window.location.reload();
+    copiaTablero = [];
 }
 
 function limpiarCasilla(numero) {
