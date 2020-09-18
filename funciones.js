@@ -25,17 +25,66 @@ function marcarCasilla(numero) {
             copiaTablero[numero-1] = 'O';
             turnoPrimerJugador = true;
         }
+
+        //¿ALGUIEN GANÓ?
+        if(revisarGanador()) {
+            console.log('YA HAY UN GANADOR')
+            //BLOQUEAR TABLERO
+
+            //MOSTRAR MENSAJE DE FELICIDADES
+        }
+        
     }
     //SALIR
+    
+}
+
+function revisarGanador() {
+
+    //VERTICALES 
+    //OPC 1 -> 0, 3, 6
+    //OPC 2 -> 1, 4, 7
+    //OPC 3 -> 2, 5, 8
+    if(
+        (copiaTablero[0] && copiaTablero[0] ==  copiaTablero[3] && copiaTablero[0] == copiaTablero[6]) || 
+        (copiaTablero[1] && copiaTablero[1] == copiaTablero[4] && copiaTablero[1] == copiaTablero[7]) ||
+        (copiaTablero[2] && copiaTablero[2] == copiaTablero[5] && copiaTablero[2] == copiaTablero[8])
+        ) {
+        return true;
+    }
+
+    //HORIZONTALES
+    //OPC 1 -> 0, 1, 2
+    //OPC 2 -> 3, 4, 5
+    //OPC 3 -> 6, 7, 8
+
+    if(
+        (copiaTablero[0] && copiaTablero[0] ==  copiaTablero[1] && copiaTablero[0] == copiaTablero[2]) ||
+        (copiaTablero[3] && copiaTablero[3] ==  copiaTablero[4] && copiaTablero[3] == copiaTablero[5]) ||
+        (copiaTablero[6] && copiaTablero[6] ==  copiaTablero[7] && copiaTablero[6] == copiaTablero[8])
+    ) {
+        return true;
+    }
+
+    //DIAGONALES
+    //OPC 1 -> 0, 4, 8
+    //OPC 2 -> 2, 4, 6
+
+    if(
+        (copiaTablero[0] && copiaTablero[0] == copiaTablero[4] && copiaTablero[0] == copiaTablero[8]) ||
+        (copiaTablero[2] && copiaTablero[2] == copiaTablero[4] && copiaTablero[2] == copiaTablero[6])
+    ) {
+        return true;
+    }
+    
+    
 }
 
 function estaOcupada(casilla){
 
     if(casilla.childNodes[0].innerText) {
-        console.log('sí está ocupada');
         return true;
     } else {
-        console.log('no está ocupada');
         return false;
     }
 }
