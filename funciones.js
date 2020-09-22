@@ -35,6 +35,7 @@ function marcarCasilla(numero) {
                 //BLOQUEAR TABLERO
                 seguimosJugando = false;
                 //MOSTRAR MENSAJE DE FELICIDADES
+                document.getElementById('mensaje-ganador').style.display = 'inline-block'
             }
 
         }
@@ -104,6 +105,8 @@ function reiniciarJuego () {
     limpiarCasilla(9);
     // window.location.reload();
     copiaTablero = [];
+    seguimosJugando = true;
+    document.getElementById('mensaje-ganador').style.display = 'none'
 }
 
 function limpiarCasilla(numero) {
