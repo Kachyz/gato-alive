@@ -31,7 +31,6 @@ function marcarCasilla(numero) {
 
             //¿ALGUIEN GANÓ?
             if(revisarGanador()) {
-                console.log('YA HAY UN GANADOR')
                 //BLOQUEAR TABLERO
                 seguimosJugando = false;
                 //MOSTRAR MENSAJE DE FELICIDADES
