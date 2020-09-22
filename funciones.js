@@ -1,6 +1,7 @@
 // 1 - X    2 - O
 let turnoPrimerJugador = true;
 let copiaTablero = [];
+let seguimosJugando = true;
 
 function marcarCasilla(numero) {
     let casilla = document.getElementById("casilla" + numero);
@@ -8,35 +9,37 @@ function marcarCasilla(numero) {
     //LA CASILLA ESTÁ OCUPADA???
     let ocupada = estaOcupada(casilla);
 
-    if(!ocupada) {
-        // Preguntamos de quien es el turno
-        if(turnoPrimerJugador) {
-            casilla.classList.add("casilla-morada");
-            casilla.classList.remove("casilla-azul");
-            casilla.childNodes[0].innerText = 'X';
-            // colocar la misma X pero en el arreglo
-            copiaTablero[numero-1] = 'X';
-            turnoPrimerJugador = false;
-        }
-        else {
-            casilla.classList.add("casilla-azul");
-            casilla.classList.remove("casilla-morada");
-            casilla.childNodes[0].innerText = 'O';
-            copiaTablero[numero-1] = 'O';
-            turnoPrimerJugador = true;
-        }
+    // if(seguimosJugando && !ocupada) {
+    if(seguimosJugando) {
+        if(!ocupada) {
+            // Preguntamos de quien es el turno
+            if(turnoPrimerJugador) {
+                casilla.classList.add("casilla-morada");
+                casilla.classList.remove("casilla-azul");
+                casilla.childNodes[0].innerText = 'X';
+                // colocar la misma X pero en el arreglo
+                copiaTablero[numero-1] = 'X';
+                turnoPrimerJugador = false;
+            }
+            else {
+                casilla.classList.add("casilla-azul");
+                casilla.classList.remove("casilla-morada");
+                casilla.childNodes[0].innerText = 'O';
+                copiaTablero[numero-1] = 'O';
+                turnoPrimerJugador = true;
+            }
 
-        //¿ALGUIEN GANÓ?
-        if(revisarGanador()) {
-            console.log('YA HAY UN GANADOR')
-            //BLOQUEAR TABLERO
+            //¿ALGUIEN GANÓ?
+            if(revisarGanador()) {
+                console.log('YA HAY UN GANADOR')
+                //BLOQUEAR TABLERO
+                seguimosJugando = false;
+                //MOSTRAR MENSAJE DE FELICIDADES
+            }
 
-            //MOSTRAR MENSAJE DE FELICIDADES
         }
-        
     }
     //SALIR
-    
 }
 
 function revisarGanador() {
@@ -76,8 +79,8 @@ function revisarGanador() {
     ) {
         return true;
     }
-    
-    
+
+    return false;
 }
 
 function estaOcupada(casilla){
