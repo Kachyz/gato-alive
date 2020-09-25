@@ -2,9 +2,11 @@
 let turnoPrimerJugador = true;
 let copiaTablero = [];
 let seguimosJugando = true;
+let numeroDeJugadores = 2;
 
 function marcarCasilla(numero) {
     let casilla = document.getElementById("casilla" + numero);
+
 
     //LA CASILLA ESTÁ OCUPADA???
     let ocupada = estaOcupada(casilla);
@@ -20,6 +22,7 @@ function marcarCasilla(numero) {
                 // colocar la misma X pero en el arreglo
                 copiaTablero[numero-1] = 'X';
                 turnoPrimerJugador = false;
+                document.getElementById("jugadorEnTurno").innerText = 2;
             }
             else {
                 casilla.classList.add("casilla-azul");
@@ -27,6 +30,7 @@ function marcarCasilla(numero) {
                 casilla.childNodes[0].innerText = 'O';
                 copiaTablero[numero-1] = 'O';
                 turnoPrimerJugador = true;
+                document.getElementById("jugadorEnTurno").innerText = 1;
             }
 
             //¿ALGUIEN GANÓ?
@@ -105,7 +109,9 @@ function reiniciarJuego () {
     // window.location.reload();
     copiaTablero = [];
     seguimosJugando = true;
-    document.getElementById('mensaje-ganador').style.display = 'none'
+    turnoPrimerJugador = true;
+    document.getElementById('mensaje-ganador').style.display = 'none';
+    document.getElementById("jugadorEnTurno").innerText = 1;
 }
 
 function limpiarCasilla(numero) {
@@ -117,4 +123,19 @@ function limpiarCasilla(numero) {
     //quitamos estilos
     casilla.classList.remove("casilla-morada");
     casilla.classList.remove("casilla-azul");
+}
+
+function cambiarModoDeJuego () {
+    //CAMBIAR EL TEXTO DEL BOTÓN
+    //CAMBIAR EL NUMERO DE JUGADORES
+    //REINICIAR EL JUEGO
+
+    if(numeroDeJugadores == 2) {
+        document.getElementById("modoJuego").innerText = "VS PLAYER";
+        numeroDeJugadores = 1;
+    } else {
+        document.getElementById("modoJuego").innerText = "VS CPU";
+        numeroDeJugadores = 2;
+    }
+    reiniciarJuego();
 }
