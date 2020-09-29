@@ -39,11 +39,34 @@ function marcarCasilla(numero) {
                 seguimosJugando = false;
                 //MOSTRAR MENSAJE DE FELICIDADES
                 document.getElementById('mensaje-ganador').style.display = 'inline-block'
+            } else {
+                // No hubo ganador, pasamos al siguiente jugador
+                if(numeroDeJugadores === 1 ) {
+                    // Estamos jugando contra CPU
+                    if(!turnoPrimerJugador){
+                        turnoCPU()
+                    }
+                }
             }
 
         }
     }
     //SALIR
+}
+
+function turnoCPU() {
+    // Seleccionar un numero Random (aleatorio)
+    // Multiplicarlos por 10
+    // Redondearlo para evitar decimales
+    // Relacionar ese número con casilla correspondiente
+    // Revisar si la casilla NO está ocupada
+        // Tomar decisión al respecto
+    // Regresar a jugador 1
+
+    let numAleatorio = Math.floor(Math.random() * 10)
+    let seleccionCPU = document.getElementById('casilla' + numAleatorio)
+
+    estaOcupada(seleccionCPU) // AQUI NOS QUEDAMOS
 }
 
 function revisarGanador() {
