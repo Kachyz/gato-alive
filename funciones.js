@@ -63,10 +63,14 @@ function turnoCPU() {
         // Tomar decisión al respecto
     // Regresar a jugador 1
 
-    let numAleatorio = Math.floor(Math.random() * 10)
-    let seleccionCPU = document.getElementById('casilla' + numAleatorio)
+    let numAleatorio = Math.floor(Math.random() * 9) + 1;
+    console.log(numAleatorio);
+    turnoPrimerJugador = false;
+    marcarCasilla(numAleatorio);
+    turnoPrimerJugador = true;
+    // let seleccionCPU = document.getElementById('casilla' + numAleatorio)
 
-    estaOcupada(seleccionCPU) // AQUI NOS QUEDAMOS
+    // estaOcupada(seleccionCPU) // AQUI NOS QUEDAMOS
 }
 
 function revisarGanador() {
@@ -156,6 +160,7 @@ function cambiarModoDeJuego () {
     if(numeroDeJugadores == 2) {
         document.getElementById("modoJuego").innerText = "VS PLAYER";
         numeroDeJugadores = 1;
+        turnoPrimerJugador = true;
     } else {
         document.getElementById("modoJuego").innerText = "VS CPU";
         numeroDeJugadores = 2;
