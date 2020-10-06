@@ -40,6 +40,7 @@ function marcarCasilla(numero) {
                 document.getElementById('mensaje-ganador').style.display = 'inline-block'
             } else {
                 // No hubo ganador, pasamos al siguiente jugador
+                revisarEmpate()
                 if(numeroDeJugadores === 1 ) {
                     // Estamos jugando contra CPU
                     if(!turnoPrimerJugador){
@@ -47,10 +48,26 @@ function marcarCasilla(numero) {
                     }
                 }
             }
-
         }
     }
     //SALIR
+}
+
+function revisarEmpate() {
+    // Revisar `copiaTablero` para saber si ya tiene marcadas las 9 casillas
+    if (
+        copiaTablero[0] &&
+        copiaTablero[1] &&
+        copiaTablero[2] &&
+        copiaTablero[3] &&
+        copiaTablero[4] &&
+        copiaTablero[5] &&
+        copiaTablero[6] &&
+        copiaTablero[7] &&
+        copiaTablero[8]
+    ){
+        seguimosJugando = false;
+    }
 }
 
 function turnoCPU() {
