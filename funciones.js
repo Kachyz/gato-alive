@@ -7,7 +7,6 @@ let numeroDeJugadores = 2;
 function marcarCasilla(numero) {
     let casilla = document.getElementById("casilla" + numero);
 
-
     //LA CASILLA ESTÁ OCUPADA???
     let ocupada = estaOcupada(casilla);
 
@@ -64,13 +63,22 @@ function turnoCPU() {
     // Regresar a jugador 1
 
     let numAleatorio = Math.floor(Math.random() * 9) + 1;
-    console.log(numAleatorio);
-    turnoPrimerJugador = false;
-    marcarCasilla(numAleatorio);
-    turnoPrimerJugador = true;
-    // let seleccionCPU = document.getElementById('casilla' + numAleatorio)
+    let casillaSeleccionada = document.getElementById('casilla' + numAleatorio)
 
-    // estaOcupada(seleccionCPU) // AQUI NOS QUEDAMOS
+    if(!estaOcupada(casillaSeleccionada)) {
+        // La casilla está libre
+        marcarCasilla(numAleatorio);
+    } else {
+       // La casilla seleccionada se encuentra ocupada
+       turnoCPU()
+    }
+
+    // Este bloque hace lo mismo que el IF anterior
+    // while(estaOcupada(casillaSeleccionada)) {
+    //     numAleatorio = Math.floor(Math.random() * 9) + 1;
+    //     casillaSeleccionada = document.getElementById('casilla' + numAleatorio)
+    // }
+    // marcarCasilla(numAleatorio)
 }
 
 function revisarGanador() {
