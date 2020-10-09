@@ -82,12 +82,14 @@ function turnoCPU() {
     let numAleatorio = Math.floor(Math.random() * 9) + 1;
     let casillaSeleccionada = document.getElementById('casilla' + numAleatorio)
 
-    if(!estaOcupada(casillaSeleccionada)) {
-        // La casilla está libre
-        marcarCasilla(numAleatorio);
-    } else {
-       // La casilla seleccionada se encuentra ocupada
-       turnoCPU()
+    if(seguimosJugando) {
+        if(!estaOcupada(casillaSeleccionada)) {
+            // La casilla está libre
+            marcarCasilla(numAleatorio);
+        } else {
+           // La casilla seleccionada se encuentra ocupada
+           turnoCPU()
+        }
     }
 
     // Este bloque hace lo mismo que el IF anterior
